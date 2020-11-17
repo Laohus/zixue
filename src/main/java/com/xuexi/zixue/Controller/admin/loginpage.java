@@ -1,14 +1,15 @@
 package com.xuexi.zixue.Controller.admin;
 
-import com.xuexi.zixue.Controller.checkdata.User;
+import com.xuexi.zixue.Controller.checkdata.connsql;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.validation.Valid;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
 public class loginpage {
     @RequestMapping("/")
     public String login() {
@@ -16,42 +17,22 @@ public class loginpage {
 
     }
 
+    @PostMapping("/home")
+    public String loginhome(@RequestParam("username") String username, @RequestParam("password") String password,
+                            Model model){
 
-
-//    @GetMapping("/home")
-//    public String loginhome(@RequestParam("username") String username, @RequestParam("password") String password,
-//                            Model model){
-//
-//        boolean res = new connsql().checklogin(username,password);
-//        if (res){
-//            return "/page/home.html";
-//        }else {
-////            map.put("msg","输入账号信息不正确，请重试！");
-//            model.addAttribute("msg","输入账号信息不正确，请重试！");
-//
-//            return "/";
-//
-//        }
-//
-//    }
-
-    @RequestMapping("/home")
-    public String loginhome(@Valid User user, BindingResult result, Model model){
-        if(result.hasErrors()){
-            return "/page/login.html";
+        boolean res = new connsql().checklogin(username,password);
+        if (username==null || password==null){
+            model.addAttribute("msg","输入账号信息不能为null");
+            return "redirect:/";
         }
+        if (res){
+            return "redirect:/page/home.html";
+        }else {
+            model.addAttribute("msg","输入账号信息不正确，请重试！");
+            return "redirect:/";
 
-//        boolean res = new connsql().checklogin(username,password);
-//        if (res){
-//            return "/page/home.html";
-//        }else {
-////            map.put("msg","输入账号信息不正确，请重试！");
-//            model.addAttribute("msg","输入账号信息不正确，请重试！");
-//
-//            return "/";
-//
-//        }
-//
-        return "ok";
+        }
     }
+
 }
