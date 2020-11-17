@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:c="http://www.w3.org/1999/XSL/Transform" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>个人学习平台</title>
@@ -21,7 +22,7 @@
             <label for="password"></label><input id="password" name="password" class="form__input" type="password" placeholder="password" maxlength="12" required/>
             <button id="button" class="form__button button submit">登录</button>
             <br>
-            <div class="error">${requestScope.msg}</div>
+            <p class="error" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
         </form>
     </div>
     <div class="switch" id="switch-cnt">
@@ -34,7 +35,7 @@
 
     </div>
 </div>
-<script type="text/javascript">
+<script>
 
 </script>
 </body>

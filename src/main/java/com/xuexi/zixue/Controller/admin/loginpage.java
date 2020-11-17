@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
+
 @Controller
 @RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
 public class loginpage {
@@ -19,17 +22,17 @@ public class loginpage {
 
     @PostMapping("/home")
     public String loginhome(@RequestParam("username") String username, @RequestParam("password") String password,
-                            Model model){
+                            Map<String,Object> map){
 
         boolean res = new connsql().checklogin(username,password);
         if (username==null || password==null){
-            model.addAttribute("msg","输入账号信息不能为null");
+            map.put("msg","输入的用户信息不能为null");
             return "redirect:/";
         }
         if (res){
             return "redirect:/page/home.html";
         }else {
-            model.addAttribute("msg","输入账号信息不正确，请重试！");
+            map.put("msg","输入的用户信息不正确");
             return "redirect:/";
 
         }
