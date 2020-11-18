@@ -21,13 +21,13 @@ public class loginpage {
                             Map<String,Object> map){
         boolean res = new connsql().checklogin(username,password);
         if (username.equals("null") || password.equals("null")){
-            map.put("messageerror","输入的用户信息不能为null");
+            map.put("messageerror","输入的用户信息不能包含特殊字符");
             return "login";
         }
         if (res){
             return "redirect:/page/home.html";
         }else {
-            map.put("messageerror","输入的用户信息不正确");
+            map.put("messageerror","输入的账号密码不正确，请重新输入！");
             return "login";
 
         }
