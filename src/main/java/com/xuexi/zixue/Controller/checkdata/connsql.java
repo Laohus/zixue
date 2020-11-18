@@ -1,15 +1,19 @@
 package com.xuexi.zixue.Controller.checkdata;
 
 import java.sql.*;
+import java.util.Map;
+
 
 public class connsql {
-    Connection con;
-    String driver = "com.mysql.cj.jdbc.Driver";
-    String url = "jdbc:mysql://cdb-lheasfxq.cd.tencentcdb.com:10076/study_from?serverTimezone=UTC";
-    String user = "root";
-    String password = "Weiwei11432";
 
-    public boolean checklogin(String inputusername, String inputpassword){
+    Connection con;
+
+    public boolean checklogin(String inputusername, String inputpassword, Map<String, String> mapsource){
+        String driver = mapsource.get("driver");
+        String url = mapsource.get("url");
+        String user = mapsource.get("user");
+        String password = mapsource.get("userpassword");
+
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, user, password);
@@ -19,9 +23,7 @@ public class connsql {
             return rs.next();
 
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("ceasd");
             e.printStackTrace();
-            System.out.println("ce");
             return false;
 
         }
