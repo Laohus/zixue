@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +29,8 @@ public class loginpage {
     private String userpassword;
 
     @RequestMapping("/login")
-    public String login() { return "login"; }
+    public String login(HttpSession httpSession) {
+        return "login"; }
 
     @PostMapping("/home")
     public String loginhome(@RequestParam("username") String username, @RequestParam("password") String password,
