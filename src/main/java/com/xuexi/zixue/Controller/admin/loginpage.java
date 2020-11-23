@@ -3,11 +3,13 @@ package com.xuexi.zixue.Controller.admin;
 import com.xuexi.zixue.Controller.checkdata.connsql;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,30 +31,77 @@ public class loginpage {
     private String userpassword;
 
     @RequestMapping("/login")
-    public String login(HttpSession httpSession) {
+    public String login() {
         return "login"; }
 
-    @PostMapping("/home")
-    public String loginhome(@RequestParam("username") String username, @RequestParam("password") String password,
-                            Map<String,Object> map){
-        Map<String, String> mapsource = new HashMap<String,String>();
-        mapsource.put("driver",driver);
-        mapsource.put("url",url);
-        mapsource.put("user",user);
-        mapsource.put("userpassword",userpassword);
+//    @RequestMapping("/home")
+//    public String loginhome(@RequestParam("username") String username, @RequestParam("password") String password,
+//                            Map<String,Object> map, HttpSession session){
+//        Map<String, String> mapsource = new HashMap<String,String>();
+//        mapsource.put("driver",driver);
+//        mapsource.put("url",url);
+//        mapsource.put("user",user);
+//        mapsource.put("userpassword",userpassword);
+//        System.out.println(username);
+//
+//        if (username.equals("null") || password.equals("null")){
+//            map.put("messageerror","输入的用户信息不能包含特殊字符");
+//            return "login";
+//        }
+//        boolean res = new connsql().checklogin(username,password,mapsource);
+//        if (res){
+//            session.setAttribute("username",username);
+//            return "home";
+//        }else {
+//            map.put("messageerror","输入的账号密码不正确，请重新输入！");
+//            return "login";
+//
+//        }
+//    }
 
-        if (username.equals("null") || password.equals("null")){
-            map.put("messageerror","输入的用户信息不能包含特殊字符");
+
+
+    @RequestMapping("/login/home")
+    public String loginhome(HttpServletRequest request, Map<String,Object> map, HttpSession session){
+        try {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            Map<String, String> mapsource = new HashMap<String,String>();
+            mapsource.put("driver",driver);
+            mapsource.put("url",url);
+            mapsource.put("user",user);
+            mapsource.put("userpassword",userpassword);
+            if (username.equals("null") || password.equals("null")){
+                map.put("messageerror","输入的用户信息不能包含特殊字符");
+                return "login";
+            }
+            boolean res = new connsql().checklogin(username,password,mapsource);
+            if (res){
+                session.setAttribute("username",username);
+                return "home";
+            }else {
+                map.put("messageerror","输入的账号密码不正确，请重新输入！");
+                return "login";
+
+            }
+        }catch (Exception e){
             return "login";
+
         }
-        boolean res = new connsql().checklogin(username,password,mapsource);
-        if (res){
-            return "redirect:/page/home.html";
+
+    }
+
+    @RequestMapping("/homepage")
+    public String loginhomepage(HttpSession session){
+        String sessionche = (String) session.getAttribute("username");
+        System.out.println(sessionche);
+        if (sessionche!=null && sessionche.length()>0){
+            System.out.println(sessionche);
+            return "home";
         }else {
-            map.put("messageerror","输入的账号密码不正确，请重新输入！");
             return "login";
-
         }
+
     }
 
 }
