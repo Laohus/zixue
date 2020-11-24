@@ -63,9 +63,14 @@ public class loginpage {
 
     @RequestMapping("/login/home")
     public String loginhome(HttpServletRequest request, Map<String,Object> map, HttpSession session){
-        try {
+
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            if (session.getAttribute("username")==null && username==null){
+                return "login";
+            }else if (session.getAttribute("username")!=null && username==null){
+                return "home";
+            }
             Map<String, String> mapsource = new HashMap<String,String>();
             mapsource.put("driver",driver);
             mapsource.put("url",url);
@@ -84,20 +89,14 @@ public class loginpage {
                 return "login";
 
             }
-        }catch (Exception e){
-            return "login";
-
-        }
 
     }
 
     @RequestMapping("/homepage")
     public String loginhomepage(HttpSession session){
         String sessionche = (String) session.getAttribute("username");
-        System.out.println(sessionche);
         if (sessionche!=null && sessionche.length()>0){
-            System.out.println(sessionche);
-            return "home";
+            return "homepage";
         }else {
             return "login";
         }
