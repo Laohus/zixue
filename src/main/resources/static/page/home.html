@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
-
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link href="../css/light-bootstrap-dashboard.css" rel="stylesheet"/>
     <link href="../css/demo.css" rel="stylesheet" />
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href='../css/685fd913f1e14aebad0cc9d3713ee469.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="../css/user.css" type='text/css'>
 </head>
 <body>
 <div class="wrapper">
@@ -149,7 +149,6 @@
             </ul>
         </div>
     </div>
-
     <div class="main-panel">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -165,6 +164,12 @@
                             </a>
                             <ul class="dropdown-menu dropdown-with-icons">
                                 <li>
+                                    <a id="passmod">
+                                        <i class="pe-7s-user"></i>
+                                        修改密码
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="/loginout" class="text-danger">
                                         <i class="pe-7s-close-circle"></i>
                                         注 销
@@ -172,13 +177,24 @@
                                 </li>
                             </ul>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </nav>
+        <div class="content">
+            <div class="form_1">
+                <form>
+                    <h3 class="title">修改密码</h3><div class="close">关闭</div>
+                    <label for="newpassword"></label><input name="newpassword" id="newpassword" class="form__input" maxlength="12" type="text" placeholder="输入新密码" required/><br>
+                    <label for="newpassword_t"></label><input name="newpassword_t" id="newpassword_t" class="form__input" maxlength="12" type="text" placeholder="输入确认密码" required/><br>
+                    <button id="button" class="form__button button submit">提交</button>
+                    <br>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
 
 </body>
 <!--   Core JS Files and PerfectScrollbar library inside jquery.ui   -->
@@ -237,15 +253,6 @@
 
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="../js/demo.js"></script>
+<script src="../js/user.js"></script>
 
-<!--<script>-->
-<!--    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){-->
-<!--        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),-->
-<!--        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)-->
-<!--    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');-->
-
-<!--    ga('create', 'UA-46172202-1', 'auto');-->
-<!--    ga('send', 'pageview');-->
-
-<!--</script>-->
 </html>
