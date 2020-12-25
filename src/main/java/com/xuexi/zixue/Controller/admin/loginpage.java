@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -24,13 +26,16 @@ public class loginpage {
         }else {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            Map<String, String> umap = new HashMap<String,String>();
+            umap.put("username",username);
+            umap.put("password",password);
             if (username.equals("null") || password.equals("null")){
                 map.put("messageerror","输入的用户信息不能包含特殊字符");
                 return "login";
             }
-            Integer res = userService.accountquery(username,password);
+            Integer res = userService.accountquery(umap);
             if (res==1){
-                session.setAttribute("username",username);
+                session.setAttribute("AccountUser",umap);
                 return "redirect:/home";
             }else if (res==3){
                 map.put("messageerror","输入的账号不存在，请重新输入！");
@@ -50,20 +55,21 @@ public class loginpage {
 
 
     @RequestMapping("/home")
-    public String loginhomeg(HttpSession session){
-        String sessionche = (String) session.getAttribute("username");
-        if (sessionche!=null && sessionche.length()>0){
+    public String home(HttpSession session){
+        Map tmpMap =(Map) session.getAttribute("AccountUser");
+        if (tmpMap!=null && tmpMap.size()==2 && tmpMap.get("username")!=null && tmpMap.get("username")!=""){
             return "home";
         }else {
-            return "redirect:/login";
+            return "redirect:login";
         }
 
     }
 
     @RequestMapping("/loginout")
-    public String loginhomepage(HttpSession session){
-        session.removeAttribute("username");
+    public String loginout(HttpSession session, SessionStatus sessionStatu){
+        session.removeAttribute("AccountUser");
         session.invalidate();
+        sessionStatu.setComplete();
         return "redirect:login";
 
     }
