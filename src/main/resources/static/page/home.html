@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
@@ -10,6 +10,12 @@
     <link href='../css/685fd913f1e14aebad0cc9d3713ee469.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../css/pe-icon-7-stroke.css">
     <link rel="stylesheet" href="../css/user.css" type='text/css'>
+    <style type="text/css">
+        .error{
+            color: #ec0e0e;
+            font-size: 4px;
+        }
+    </style>
 </head>
 <body>
 <div class="wrapper">
@@ -183,11 +189,14 @@
         </nav>
         <div class="content">
             <div class="form_1">
-                <form>
+                <form action="/Moduser" method="post">
                     <h3 class="title">修改密码</h3><div class="close">关闭</div>
                     <label for="newpassword"></label><input name="newpassword" id="newpassword" class="form__input" maxlength="12" type="text" placeholder="输入新密码" required/><br>
-                    <label for="newpassword_t"></label><input name="newpassword_t" id="newpassword_t" class="form__input" maxlength="12" type="text" placeholder="输入确认密码" required/><br>
+                    <label for="newpassword_t"></label><input name="newpassword_t" id="newpassword_t" class="form__input" maxlength="12" type="text" placeholder="输入确认密码" required/>
                     <button id="button" class="form__button button submit">提交</button>
+                    <!--/*@thymesVar id="messageerror" type=""*/-->
+                    <p class="error" th:text="${messageerror}" th:if="${not #strings.isEmpty(messageerror)}"></p>
+                    <p th:text="${message}" th:if="${not #strings.isEmpty(message)}"></p>
                     <br>
                 </form>
             </div>
