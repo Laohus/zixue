@@ -14,47 +14,42 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Controller
-@PropertySource("classpath:application.properties")
 public class loginpage {
 
 
     @RequestMapping("/login")
-    public String login() { return "login"; }
+    public String login(HttpServletRequest request, Map<String,Object> map, HttpSession session) {
+        if (request.getParameter("username")==null && request.getParameter("password")==null){
+            return "/login";
+        }else {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            if (username.equals("null") || password.equals("null")){
+                map.put("messageerror","输入的用户信息不能包含特殊字符");
+                return "login";
+            }
+            Integer res = userService.accountquery(username,password);
+            if (res==1){
+                session.setAttribute("username",username);
+                return "redirect:/home";
+            }else if (res==3){
+                map.put("messageerror","输入的账号不存在，请重新输入！");
+                return "/login";
+            }
+            else {
+                map.put("messageerror","输入的账号密码不正确，请重新输入！");
+                return "/login";
+
+            }
+        }
+    }
+
 
     @Autowired
     private UserAccount userService;
 
-    @RequestMapping("/login/home")
-    public String loginhome(HttpServletRequest request, Map<String,Object> map, HttpSession session){
 
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        if (session.getAttribute("username")==null && username==null){
-            return "login";
-        }else if (session.getAttribute("username")!=null && username==null){
-            return "home";
-        }
-        if (username.equals("null") || password.equals("null")){
-            map.put("messageerror","输入的用户信息不能包含特殊字符");
-            return "login";
-        }
-        Integer res = userService.accountquery(username,password);
-        if (res==1){
-            session.setAttribute("username",username);
-            return "home";
-        }else if (res==3){
-            map.put("messageerror","输入的账号不存在，请重新输入！");
-            return "login";
-        }
-        else {
-            map.put("messageerror","输入的账号密码不正确，请重新输入！");
-            return "login";
-
-        }
-
-    }
-
-    @GetMapping("/login/home")
+    @RequestMapping("/home")
     public String loginhomeg(HttpSession session){
         String sessionche = (String) session.getAttribute("username");
         if (sessionche!=null && sessionche.length()>0){
