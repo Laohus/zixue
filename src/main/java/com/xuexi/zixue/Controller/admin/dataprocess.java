@@ -6,6 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,14 +16,13 @@ import java.util.Map;
 
 
 @Controller
-@PropertySource("classpath:application.properties")
+//@RestController
 public class dataprocess {
 
     @Autowired
     private UserAccount userService;
 
-
-    @RequestMapping("/Moduser")
+    @RequestMapping("/home/edit-user")
     public String Moduser(HttpServletRequest request, Map<String,Object> map, HttpSession session) {
         Map tmpMap =(Map) session.getAttribute("AccountUser");
         if (tmpMap==null){
@@ -30,6 +30,7 @@ public class dataprocess {
         }
         String newpassword = request.getParameter("newpassword");
         String newpassword_t = request.getParameter("newpassword_t");
+        System.out.println(newpassword);
         if (newpassword.equals("null") || newpassword_t.equals("null")){
             map.put("messageerror","新密码不能为特殊字符，请重新输入");
             return "/home";
@@ -44,7 +45,7 @@ public class dataprocess {
         Integer res = userService.passwordquery(umap);
         if(res==0){
             map.put("messageerror","新密码与旧密码相同，请重新输入");
-            return "/home";
+            return "False";
         }
         if(res==1){
             map.put("message","修改密码成功");
