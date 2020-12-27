@@ -6596,7 +6596,7 @@ star {
   font-size: 16px;
 }
 .navbar.fixed {
-  width: calc(100% - $sidebar-width);
+  /*width: calc(100% - $sidebar-width);*/
   right: 0;
   left: auto;
   border-radius: 0;
@@ -8093,7 +8093,7 @@ star {
 .bootstrap-datetimepicker-widget table td.today > div:before {
   content: '';
   display: inline-block;
-  border: 0 0 7px 7px solid transparent;
+  /*border: 0 0 7px 7px solid transparent;*/
   border-bottom-color: #23CCEF;
   border-top-color: rgba(0, 0, 0, 0.2);
   position: absolute;
