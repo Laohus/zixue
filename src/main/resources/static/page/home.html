@@ -11,7 +11,12 @@
     <style type="text/css">
         .error{
             color: #ec0e0e;
-            font-size: 4px;
+            font-size: 15px;
+            text-align:center;
+        }
+        .message{
+            font-size: 15px;
+            text-align:center;
         }
     </style>
 </head>
@@ -173,15 +178,14 @@
             </div>
         </nav>
         <div class="content">
-            <div class="form_1">
-                <form  action="/home/edit-user">
-                    <h3 class="title">修改密码</h3><div class="close">关闭</div>
-                    <label for="newpassword"></label><input name="newpassword" id="newpassword" class="form__input" maxlength="12" type="text" placeholder="输入新密码" required/><br>
-                    <label for="newpassword_t"></label><input name="newpassword_t" id="newpassword_t" class="form__input" maxlength="12" type="text" placeholder="输入确认密码" required/>
-                    <button id="button" class="form__button button submit">提交</button>
-                    <!--/*@thymesVar id="messageerror" type=""*/-->
-                    <p class="error" th:text="${messageerror}" th:if="${not #strings.isEmpty(messageerror)}"></p>
-                    <p th:text="${message}" th:if="${not #strings.isEmpty(message)}"></p>
+            <div class="pop-con">
+                <form method="post" id="signinForm">
+                    <p class="pop-title">修改密码</p>
+                    <label for="newpassword"></label><input name="newpassword" id="newpassword" class="pop-input" maxlength="12" type="text" placeholder="输入新密码" autocomplete="off" required/><br>
+                    <label for="newpassword_t"></label><input name="newpassword_t" id="newpassword_t" class="pop-input" maxlength="12" type="text" placeholder="输入确认密码" autocomplete="off" required/>
+                    <input type="button" id="button" class="pop-submit-a" value="提交">
+                    <input type="button" id="close" class="pop-close" value="取消">
+                    <p class="error" id="error"></p><p class="message" id="message"></p>
                     <br>
                 </form>
             </div>
