@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Controller
 @ResponseBody
-public class dataprocess {
+public class Home {
 
     @Autowired
     private UserAccount userService;
