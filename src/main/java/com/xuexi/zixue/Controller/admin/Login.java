@@ -28,7 +28,6 @@ public class Login extends Responseinfo {
     public PlanResult Moduser (HttpServletRequest request, HttpSession session) {
 
         PlanResult result = new PlanResult();
-        Map<String, Object> resultMap = new HashMap<>();
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");

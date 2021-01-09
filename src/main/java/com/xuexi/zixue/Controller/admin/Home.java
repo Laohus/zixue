@@ -26,7 +26,6 @@ public class Home extends Responseinfo {
     public PlanResult Moduser(HttpServletRequest request, HttpSession session) {
 
         PlanResult result = new PlanResult();
-        Map<String, Object> resultMap = new HashMap<>();
 
         Map tmpMap =(Map) session.getAttribute("AccountUser");
         if (tmpMap==null){
