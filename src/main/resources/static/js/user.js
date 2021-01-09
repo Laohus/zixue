@@ -16,7 +16,6 @@ window.onload=function () {
 
 $(document).ready(function() {
 
-
     $("#buttonlogin").click(function() {
         var username=$("#username").val();
         var password=$("#password").val();
@@ -43,14 +42,14 @@ $(document).ready(function() {
             datatype:"JSON",
             data: $('#formlogin').serialize(),
             success:function (data) {
-                if(data==="success"){
+                if(data.code===200){
                     $("#error").text("");
                     $(location).prop("href","/home")
                     return true;
                 }else {
                     $("input[ type='text']").val("");
                     $("input[ type='password']").val("");
-                    $("#error").text(data);
+                    $("#error").text(data.errormsg);
                     return false;
 
                 }
@@ -89,19 +88,19 @@ $(document).ready(function() {
             datatype:"JSON",
             data: $('#signinForm').serialize(),
             success:function (data) {
-                if(data==="success"){
+                if(data.code===200){
                     $("#error").text("");
                     $("input[ type='text']").val("");
                     $("#message").text("修改密码成功！");
                     return true;
-                }else if(data==="session is timeout"){
+                }else if(data.errormsg==="SESSION已过期，请重新登陆！"){
                     $(location).prop("href","/login")
                     return true;
 
                 } else {
                     $("#message").text("");
                     $("input[ type='text']").val("");
-                    $("#error").text(data);
+                    $("#error").text(data.errormsg);
                     return false;
 
                 }
