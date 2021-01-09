@@ -2,7 +2,6 @@ window.onload=function () {
     var user1=document.getElementById("passmod");
     var user2=document.getElementsByClassName("pop-close");
     var form_1=document.getElementsByClassName("pop-con");
-    var user3=document.getElementsByClassName("pop-submit-a");
 
     user1.addEventListener("click",function () {
         form_1[0].className="pop-con open";
