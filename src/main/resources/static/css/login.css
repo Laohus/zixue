@@ -1,0 +1,10 @@
+.main{
+    background-image: url("../images/full-screen-image-4.jpg");
+    background-size: 100%;
+    background-repeat:no-repeat;
+    background-color: black;
+    opacity: 10%;
+    filter:alpha(opacity=40);
+}
+
+

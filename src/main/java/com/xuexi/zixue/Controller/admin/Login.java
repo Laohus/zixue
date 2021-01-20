@@ -25,7 +25,7 @@ public class Login extends Responseinfo {
     private UserAccount userService;
 
     @RequestMapping("/login/account")
-    public PlanResult Moduser (HttpServletRequest request, HttpSession session) {
+    public PlanResult Moduser (HttpServletRequest request) {
 
         PlanResult result = new PlanResult();
 
@@ -36,7 +36,8 @@ public class Login extends Responseinfo {
         umap.put("password",password);
         Integer res = userService.accountquery(umap);
         if (res==1){
-            session.setAttribute("AccountUser",umap);
+            HttpSession session = request.getSession();
+            session.setAttribute(username,umap);
             result.setCode(getSUCCESS_CODE());
             result.setMsg(getACCOUNT_SUCCESS());
             return result;
