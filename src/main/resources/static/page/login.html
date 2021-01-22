@@ -1,73 +1,36 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:c="http://www.w3.org/1999/XSL/Transform">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <title>个人学习平台</title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-
     <script src="../js/jquery.min.js" type="text/javascript"></script>
-    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../js/light-bootstrap-dashboard.js"></script>
     <script src="../js/user.js"></script>
+    <link rel="stylesheet" href="../css/login.css">
 
 </head>
 <body>
-<div class="wrapper wrapper-full-page">
-    <div class="full-page login-page" data-color="black" data-image="../images/full-screen-image-4.jpg">
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-                        <form id="formlogin" method="post">
-                            <div class="card card-hidden">
-                                <div class="pop-title">登&emsp;&emsp;陆</div>
-                                <div class="content">
-                                    <div class="form-group">
-                                        <label for="username"></label><input type="text" placeholder="请输入用户名" class="form-control" maxlength="12" id="username" name="username" autocomplete="off" required/>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password"></label><input type="password" placeholder="请输入用户密码" class="form-control" maxlength="12" id="password" name="password" autocomplete="off" required/>
-                                    </div>
-                                </div>
-                                <div class="footer text-center">
-                                    <input  type="button" id="buttonlogin" class="btn btn-fill btn-warning btn-wd" value="登&emsp;陆">
-                                </div>
-                                <!--/*@thymesVar id="messageerror" type=""*/-->
-<!--                                <p class="error" th:text="${messageerror}" th:if="${not #strings.isEmpty(messageerror)}"></p>-->
-                                <p class="error" id="error"></p>
-                            </div>
-
-                        </form>
-
-                    </div>
-                </div>
-            </div>
+<div class="center">
+<div class="main">
+    <form method="post" id="formlogin">
+        <div class="title">学习平台</div>
+        <div>
+            <img class="ver-username" src="../images/vector/User.png" alt="">
+            <label  for="username"></label>
+            <input type="text" placeholder="请输入用户名" class="input-text" maxlength="12" id="username" name="username" autocomplete="off" required/>
         </div>
-    </div>
+        <div>
+            <img class="ver-password" src="../images/vector/Password.png" alt="">
+            <label for="password"></label>
+            <input type="password" placeholder="请输入用户密码" class="input-text" maxlength="12" id="password" name="password" autocomplete="off" required/>
+        </div>
+        <div>
+            <input type="button" id="buttonlogin" value="登&emsp;陆">
+        </div>
+        <p class="error" id="error"></p>
+    </form>
+
 </div>
-
-
-
+</div>
 </body>
-<script type="text/javascript">
-    $().ready(function(){
-        lbd.checkFullPageBackgroundImage();
-        setTimeout(function(){
-            $('.card').removeClass('card-hidden');
-        }, 0)
-    });
-</script>
-<style type="text/css">
-    .pop-title{
-        text-align: center;
-        font-size: 25px;
-    }
-    .error{
-        color: #ec0e0e;
-        margin-left: 35px;
-    }
-</style>
 </html>
