@@ -1,0 +1,41 @@
+body{
+    margin:0;
+    padding:0;
+    background-size: 100%, 100%;
+}
+
+.center{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+}
+
+.meunleft{
+    position: absolute;
+    height: 100%;
+    width: 12%;
+    background:url("../images/full-screen-image-3.jpg") repeat;
+    background-size: 1600px, 0;
+}
+
+.meun{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.titletop{
+    position: absolute;
+    margin-left: 12%;
+    height: 8%;
+    width: 83%;
+}
+.main{
+    position: absolute;
+    margin-top: 8%;
+    margin-left: 12%;
+    height: 83%;
+    width: 86%;
+}
