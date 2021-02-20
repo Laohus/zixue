@@ -1,20 +1,6 @@
-window.onload=function () {
-    var user1=document.getElementById("passmod");
-    var user2=document.getElementsByClassName("pop-close");
-    var form_1=document.getElementsByClassName("pop-con");
-
-    user1.addEventListener("click",function () {
-        form_1[0].className="pop-con open";
-    })
-    user2[0].addEventListener("click",function () {
-        form_1[0].className="pop-con";
-    })
-
-}
-
-
 $(document).ready(function() {
 
+    // 用户登录
     $("#buttonlogin").click(function() {
         var username=$("#username").val();
         var password=$("#password").val();
@@ -58,6 +44,7 @@ $(document).ready(function() {
 
     });
 
+    // 修改密码
     $("#button").click(function() {
         var newpassword=$("#newpassword").val();
         var newpassword_t=$("#newpassword_t").val();

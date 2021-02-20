@@ -2,40 +2,100 @@ body{
     margin:0;
     padding:0;
     background-size: 100%, 100%;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.8);
+
 }
 
+.menu{
+    position: absolute;
+    height: 100%;
+    width: 10%;
+    background-color: rgba(0,0,0,0.7);
+}
+.top-center{
+    position: absolute;
+    height: 8%;
+    width: 90%;
+    margin-left: 10%;
+    background-color: rgba(0,0,0,1);
+}
 .center{
     position: absolute;
-    height: 100%;
+    height: 80%;
+    width: 90%;
+    margin-left: 10%;
+    margin-top: 9%;
+    margin-bottom: 0;
+    background-color: lightgray;
+}
+.menu-title{
     width: 100%;
-    background-color: rgba(0,0,0,0);
+    height: 10%;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    border-bottom: 1px solid white;
+    line-height: 100px;
 }
 
-.meunleft{
-    position: absolute;
-    height: 100%;
-    width: 12%;
-    background:url("../images/full-screen-image-3.jpg") repeat;
-    background-size: 1600px, 0;
-}
-
-.meun{
-    position: absolute;
-    height: 100%;
+.menu-menu{
     width: 100%;
-    background-color: rgba(255,255,255,0.3);
+    height: 89%;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    line-height: 100px;
+}
+p{display: inline;}
+.menu-menu li{list-style-type:none;line-height: 50px;text-align: left;padding-left: 25px;}
+ul li{list-style-type:none;line-height: 50px;text-align: left;}
+li ul{list-style-type:none;font-size: 0;margin: 0;padding: 0;}
+.menu-menu a{color: white;text-decoration: none;font-size: 18px;padding-left: 20px;}
+
+li ul.level2{display: none}
+li:hover ul.level2{display: block;}
+
+.level1:hover{background-color: red}
+.level3:hover{background-color: red}
+
+.menu-vertor{text-align: center;vertical-align: middle;}
+.moduser{
+    position: absolute;
+    height: 200%;
+    width: 5%;
+    margin-left: 95%;
+    text-align: center;
+    vertical-align: middle;
+}
+.moduserphoto{
+    position: absolute;
+    margin: auto;
+    top: 30%;
+    left: 0;
+    right: 0;
+    bottom: 70%;
 }
 
-.titletop{
+.level4{display: none;}
+.level4-1:hover{background-color: red}
+.moduser:hover .level4{display: block;}
+.level4 a{color: white;text-decoration: none;}
+.level4{
     position: absolute;
-    margin-left: 12%;
-    height: 8%;
-    width: 83%;
+    height: 50%;
+    width: 100%;
+    margin-top: 98%;
+    background-color: black;
+    color: white;
+    font-size: 18px;
 }
-.main{
-    position: absolute;
-    margin-top: 8%;
-    margin-left: 12%;
-    height: 83%;
-    width: 86%;
+.level4 li{
+    list-style-type:none;
+    line-height: 42px;
+    vertical-align: middle;
+    text-align: center;
 }
+
+

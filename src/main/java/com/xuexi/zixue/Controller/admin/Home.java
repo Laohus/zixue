@@ -58,12 +58,12 @@ public class Home extends Responseinfo {
             username = attrs.nextElement().toString();
         }
 //            Object vakue = session.getAttribute(name);
-        System.out.println(username);
+//        System.out.println(username);
 
         Map tmpMap =(Map) session.getAttribute(username);
 
-        String newpassword = request.getParameter("newpassword");
-        String newpassword_t = request.getParameter("newpassword_t");
+        String newpassword = request.getParameter("firstpassword");
+        String newpassword_t = request.getParameter("secendpassword");
         Map<String, String> umap = new HashMap<String,String>();
         if (!newpassword.equals(newpassword_t)){
             result.setCode(getFAIL_CODE());
