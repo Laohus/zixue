@@ -23,10 +23,10 @@ body{
 }
 .center{
     position: absolute;
-    height: 80%;
+    height: 90%;
     width: 90%;
     margin-left: 10%;
-    margin-top: 9%;
+    margin-top: 5%;
     margin-bottom: 0;
     background-color: lightgray;
 }
@@ -63,19 +63,19 @@ li:hover ul.level2{display: block;}
 .menu-vertor{text-align: center;vertical-align: middle;}
 .moduser{
     position: absolute;
-    height: 200%;
-    width: 5%;
-    margin-left: 95%;
+    height: 100%;
+    width: 10%;
+    margin-left: 90%;
     text-align: center;
     vertical-align: middle;
 }
 .moduserphoto{
     position: absolute;
     margin: auto;
-    top: 30%;
-    left: 0;
-    right: 0;
-    bottom: 70%;
+    top: 50%;
+    left: 10%;
+    /*right: 0;*/
+    bottom: 50%;
 }
 
 .level4{display: none;}
@@ -84,9 +84,9 @@ li:hover ul.level2{display: block;}
 .level4 a{color: white;text-decoration: none;}
 .level4{
     position: absolute;
-    height: 50%;
-    width: 100%;
-    margin-top: 98%;
+    height: 8%;
+    width: 50%;
+    margin-left: 45%;
     background-color: black;
     color: white;
     font-size: 18px;
@@ -98,4 +98,7 @@ li:hover ul.level2{display: block;}
     text-align: center;
 }
 
+.layui-tab-card{
+    height: 95%;
+}
 
