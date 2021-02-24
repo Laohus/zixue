@@ -3,9 +3,9 @@ package com.xuexi.zixue.entity;
 public class Responseinfo {
 
 
-    private Integer SUCCESS_CODE = 200;
+    private String SUCCESS_CODE = "0";
 
-    private Integer FAIL_CODE = 100;
+    private String FAIL_CODE = "1";
 
     private  String ACCOUNT_SUCCESS="success";
 
@@ -21,19 +21,19 @@ public class Responseinfo {
 
     private  String SESSION_TIMEOUT="SESSION已过期，请重新登陆！";
 
-    public Integer getSUCCESS_CODE(){
+    public String getSUCCESS_CODE(){
         return SUCCESS_CODE;
     }
 
-    public void setSUCCESS_CODE(Integer SUCCESS_CODE){
+    public void setSUCCESS_CODE(String SUCCESS_CODE){
         this.SUCCESS_CODE=SUCCESS_CODE;
     }
 
-    public Integer getFAIL_CODE(){
+    public String getFAIL_CODE(){
         return FAIL_CODE;
     }
 
-    public void setFAIL_CODE(Integer FAIL_CODE){
+    public void setFAIL_CODE(String FAIL_CODE){
         this.FAIL_CODE=FAIL_CODE;
     }
 

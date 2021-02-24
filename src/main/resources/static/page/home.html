@@ -62,8 +62,8 @@
         <p>欢迎登陆主页</p><br>
     </div>
     <div class="menu-menu">
-        <li data-url="user.html" class="level1 rightcenter" mytitle="用户"><img class="menu-vertor" src="../images/menu/user.png" alt=""><a>用户</a></li>
-        <li data-url="setup.html" class="level1 rightcenter" mytitle="配置键"><img class="menu-vertor" src="../images/menu/setup.png" alt=""><a>配置键</a></li>
+        <li data-url="/user.html" class="level1 rightcenter" mytitle="用户"><img class="menu-vertor" src="../images/menu/user.png" alt=""><a>用户</a></li>
+        <li data-url="/setup.html" class="level1 rightcenter" mytitle="配置键"><img class="menu-vertor" src="../images/menu/setup.png" alt=""><a>配置键</a></li>
         <li class=""><img class="menu-vertor" src="../images/menu/api.png" alt=""><a>接口自动化</a>
             <ul class="level2">
                 <li class="level3 rightcenter" mytitle="接口自动化-项目"><a>项目</a></li>
@@ -119,7 +119,7 @@
                     //没有相同tab
                     element.tabAdd('demo', {
                         title:mytitle //用于演示
-                        ,content: '<iframe style="width: 95%;height: 90%; position: absolute;" scrolling="no" src='+htmlurl+' ></iframe>'
+                        ,content: '<iframe style="width: 95%;height: 90%; position: absolute;" scrolling="no" src='+'page'+htmlurl+' ></iframe>'
                         ,id: mytitle //实际使用一般是规定好的id，这里以时间戳模拟下
                     })
                     element.tabChange('demo', mytitle); //切换到当前点击的页面

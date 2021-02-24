@@ -27,7 +27,7 @@ $(document).ready(function() {
             datatype:"JSON",
             data: $('#formlogin').serialize(),
             success:function (data) {
-                if(data.code===200){
+                if(data.code==="0"){
                     $("#error").text("");
                     $(location).prop("href","/home")
                     return true;
@@ -74,7 +74,7 @@ $(document).ready(function() {
             datatype:"JSON",
             data: $('#signinForm').serialize(),
             success:function (data) {
-                if(data.code===200){
+                if(data.code==="0"){
                     $("#error").text("");
                     $("input[ type='text']").val("");
                     $("#message").text("修改密码成功！");

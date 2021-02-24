@@ -1,14 +1,17 @@
 package com.xuexi.zixue.entity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.org.apache.xpath.internal.objects.XObject;
 import org.apache.catalina.mapper.Mapper;
+
+import java.awt.*;
 
 public class PlanResult {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     //响应状态
-    private Integer code;
+    private String code;
 
     //响应错误消息
     private String msg;
@@ -17,17 +20,17 @@ public class PlanResult {
     private  String errormsg;
 
     //响应业务参数
-    private  Object data;
+    private Object data;
 
     public static ObjectMapper getMapper(){
         return MAPPER;
     }
 
-    public Integer getCode(){
+    public String getCode(){
         return code;
     }
 
-    public void setCode(Integer code){
+    public void setCode(String code){
         this.code=code;
     }
 
