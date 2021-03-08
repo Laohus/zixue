@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="../css/user.css" type='text/css'>
+    <style type="text/css">
+        .error{
+            color: #ec0e0e;
+            font-size: 15px;
+            text-align:center;
+        }
+        .message{
+            font-size: 15px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar" data-color="black" data-image="../images/full-screen-image-3.jpg" >
+        <div class="logo">
+            <a href="#" class="logo-text">
+                欢迎来到主页
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <div class="user">
+                <div class="photo">
+                    <img src="../images/userphoto.png"  alt=""/>
+                </div>
+                <div class="info">
+                    <a data-toggle="collapse" class="collapsed">
+                        Wei wei
+                    </a>
+                </div>
+            </div>
+            <ul class="nav">
+                <li>
+                    <a href="#">
+                        <i class="pe-7s-graph"></i>
+                        <p>用 户</p>
+                    </a>
+                </li>
+                <li>
+                    <a data-toggle="collapse" href="#componentsExamples">
+                        <i class="pe-7s-plugin"></i>
+                        <p>Components
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="componentsExamples">
+                        <ul class="nav">
+                            <li><a href="../components/buttons.html">Buttons</a></li>
+                            <li><a href="../components/grid.html">Grid System</a></li>
+                            <li><a href="../components/icons.html">Icons</a></li>
+                            <li><a href="../components/notifications.html">Notifications</a></li>
+                            <li><a href="../components/panels.html">Panels</a></li>
+                            <li><a href="../components/sweet-alert.html">Sweet Alert</a></li>
+                            <li><a href="../components/typography.html">Typography</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a data-toggle="collapse" href="#formsExamples">
+                        <i class="pe-7s-note2"></i>
+                        <p>Forms
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="formsExamples">
+                        <ul class="nav">
+                            <li><a href="../forms/regular.html">Regular Forms</a></li>
+                            <li><a href="../forms/extended.html">Extended Forms</a></li>
+                            <li><a href="../forms/validation.html">Validation Forms</a></li>
+                            <li><a href="../forms/wizard.html">Wizard</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#tablesExamples">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Tables
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="tablesExamples">
+                        <ul class="nav">
+                            <li><a href="../tables/regular.html">Regular Tables</a></li>
+                            <li><a href="../tables/extended.html">Extended Tables</a></li>
+                            <li><a href="../tables/bootstrap-table.html">Bootstrap Table</a></li>
+                            <li><a href="../tables/datatables.net.html">DataTables.net</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#mapsExamples">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Maps
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse" id="mapsExamples">
+                        <ul class="nav">
+                            <li><a href="../maps/google.html">Google Maps</a></li>
+                            <li><a href="../maps/vector.html">Vector Maps</a></li>
+                            <li><a href="../maps/fullscreen.html">Full Screen Map</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="../charts.html">
+                        <i class="pe-7s-graph1"></i>
+                        <p>Charts</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../calendar.html">
+                        <i class="pe-7s-date"></i>
+                        <p>Calendar</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a data-toggle="collapse" href="#pagesExamples" area-expanded="true">
+                        <i class="pe-7s-gift"></i>
+                        <p>Pages
+                            <b class="caret"></b>
+                        </p>
+                    </a>
+                    <div class="collapse in" id="pagesExamples">
+                        <ul class="nav">
+                            <li><a href="login.html">Login Page</a></li>
+                            <li><a href="register.html">Register Page</a></li>
+                            <li><a href="lock.html">Lock Screen Page</a></li>
+                            <li><a href="user.html">User Page</a></li>
+                            <li><a href="#">More coming soon...</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown dropdown-with-icons">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-list"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-with-icons">
+                                <li>
+                                    <a id="passmod">
+                                        <i class="pe-7s-user"></i>
+                                        修改密码
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/loginout" class="text-danger">
+                                        <i class="pe-7s-close-circle"></i>
+                                        注 销
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="pop-con">
+                <form method="post" id="signinForm">
+                    <p class="pop-title">修改密码</p>
+                    <label for="newpassword"></label><input name="newpassword" id="newpassword" class="pop-input" maxlength="12" type="text" placeholder="输入新密码" autocomplete="off" required/><br>
+                    <label for="newpassword_t"></label><input name="newpassword_t" id="newpassword_t" class="pop-input" maxlength="12" type="text" placeholder="输入确认密码" autocomplete="off" required/>
+                    <input type="button" id="button" class="pop-submit-a" value="提交">
+                    <input type="button" id="close" class="pop-close" value="取消">
+                    <p class="error" id="error"></p><p class="message" id="message"></p>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../js/jquery-ui.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/light-bootstrap-dashboard.js"></script>
+<script src="../js/user.js"></script>
+
+
+
+
+</html>
